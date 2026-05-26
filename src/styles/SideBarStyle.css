@@ -1,0 +1,80 @@
+/* Contenedor principal de la página de reservas */
+.reservas-page-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f3f4f6; /* El fondo gris claro de la app */
+}
+
+/* El área central donde va tu formulario */
+.reservas-main-content {
+  flex: 1;
+  margin-left: 260px; /* Espacio para que la barra no tape el formulario */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* El SideBar transformado al estilo de tu formulario */
+.sidebar-container {
+  --background: #006aaaff; /* Tu azul */
+       /* Tu amarillo */
+  --color2: #ff7c90ff;     /* Tu rosa */
+
+  width: 260px;
+  height: 100vh;
+  background-color: var(--background); /* Fondo azul como el formulario */
+  border-right: 5px solid var(--color1); /* Borde grueso amarillo */
+  box-shadow: 0.5em 0em var(--color2); /* Sombra sólida rosa hacia la derecha */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+/* El título del anfitrión con la misma sombra de tus textos <p> */
+.sidebar-title {
+  color: white;
+  font-weight: bold;
+  text-shadow: 0em 0.1em 0em var(--color2);
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  border-bottom: 3px dashed var(--color1);
+  padding-bottom: 15px;
+  text-transform: uppercase;
+}
+
+/* El nombre del host resaltado en amarillo */
+.sidebar-host-name {
+  color: var(--color1);
+  display: block;
+  font-size: 1.1em;
+  margin-top: 5px;
+  text-shadow: none;
+}
+
+
+.sidebar-container button {
+  background-color: var(--color2);
+  border: none;
+  border-bottom-right-radius: 25em;
+  height: 2.2em;
+  width: 90%;
+  transition: all 0.25s ease;
+  color: white;
+  font-weight: bold;
+  font-size: 1.05em;
+  display: flex;
+  align-items: center;
+  padding-left: 0.5em;
+  box-shadow: 1em 0em 0em white;
+  cursor: pointer;
+  margin-bottom: 1em; /* Un pequeño espacio para separar un botón de otro */
+}
