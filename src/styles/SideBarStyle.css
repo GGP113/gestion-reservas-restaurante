@@ -18,7 +18,7 @@
 /* El SideBar transformado al estilo de tu formulario */
 .sidebar-container {
   --background: #006aaaff; /* Tu azul */
-       /* Tu amarillo */
+  --color1: #ffbf6a;       /* Tu amarillo */
   --color2: #ff7c90ff;     /* Tu rosa */
 
   width: 260px;
@@ -60,8 +60,16 @@
   text-shadow: none;
 }
 
+/* Forzamos a quitar el fondo amarillo del contenedor en el aside */
+.sidebar-container #endform {
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  height: auto !important;
+}
 
-.sidebar-container button {
+/* 🌟 CAMBIO AQUÍ: Ahora el estilo apunta a las etiquetas 'a' (los Links) */
+.sidebar-container a {
   background-color: var(--color2);
   border: none;
   border-bottom-right-radius: 25em;
@@ -76,5 +84,7 @@
   padding-left: 0.5em;
   box-shadow: 1em 0em 0em white;
   cursor: pointer;
-  margin-bottom: 1em; /* Un pequeño espacio para separar un botón de otro */
+  margin-bottom: 1em;
+  text-decoration: none; /* 🌟 OBLIGATORIO: Quita el subrayado feo del enlace */
+  box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
 }

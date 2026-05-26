@@ -13,7 +13,7 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3f4f6; /* Fondo gris claro */
+  /*background-color: #f3f4f6; /* Fondo gris claro */
 }
 
 /* Esto asegura que el contenedor principal de tu componente ocupe todo el espacio */
@@ -140,7 +140,7 @@ body, html {
 }
 
 .form input:hover {
-  width: 100%;
+  
   background-color: white;
   box-shadow: 0em 0em 0em;
 }

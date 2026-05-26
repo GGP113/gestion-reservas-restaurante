@@ -20,13 +20,13 @@ function SideBar() {
 
         {/* Botón de navegación (reutiliza el estilo de tu CSS) */}
         <div id="endform">
-          <button type="button">Ver Reservas</button>
+          <Link to="ver-reservas/">Ver Reservas</Link>
         </div>
       </div>
 
       {/* Bloque Inferior: Botón de Cerrar Sesión */}
       <div id="endform">
-        <button type="button">Cerrar Sesión</button>
+        <Link to ="/">Cerrar Sesión</Link>
       </div>
     </aside>
   );

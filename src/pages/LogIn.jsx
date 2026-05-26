@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { saveLocalStorage , getLocalStorage} from "../helpers/local-storage";
 import { useNavigate } from "react-router-dom";
 import { alertaGeneral } from "../helpers/alerts";
+import { Link } from "react-router-dom";
 
 function LogIn() {
   let [userCliente, setUserCliente] = useState("");
@@ -27,7 +28,7 @@ function LogIn() {
     console.log("Guardado con éxito:", userCliente, turnoCliente);
 
     // 3. PASAMOS AL PANEL
-    navigate("/reservas");
+    navigate("/dashboard/hacer-reservas/");
   }
 
     
