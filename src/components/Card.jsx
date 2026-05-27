@@ -1,11 +1,21 @@
 import React from "react";
-import "../styles/CardStyle.css"
+import "../styles/CardStyle.css";
+import { end_points } from "../services/api";
+import { Link } from "react-router-dom";
 
-function Card({data}) {
-
+function Card({ data, onUpdate }) {
+  function deleteReserva(id) {
+    fetch(end_points.reserva + "/" + id, { method: "DELETE" })
+      .then((response) => response.json())
+      .then((resultado) => {
+        console.log("Eliminado:", resultado);
+        onUpdate();
+      })
+      .catch((error) => console.log(error));
+  }
 
   return (
-    <div className="form">
+    <div className="card-popart">
       <div id="circleform"></div>
       <div id="introform"></div>
 
@@ -14,10 +24,17 @@ function Card({data}) {
         <p>Personas: {data.cantidadPersonas}</p>
       </div>
 
-      {/* 🌟 CORREGIDO: Nuevo contenedor para acomodar los dos botones lado a lado */}
       <div id="endform-cards">
-        <button className="btn-actualizar">Actualizar</button>
-        <button className="btn-eliminar">Eliminar</button>
+        <Link
+          to="/dashboard/hacer-reservas"
+          state={{ reservaAEditar: data }}
+          className="btn-actualizar"
+        >
+          Editar
+        </Link>
+        <button className="btn-eliminar" onClick={() => deleteReserva(data.id)}>
+          Eliminar
+        </button>
       </div>
     </div>
   );

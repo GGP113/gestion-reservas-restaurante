@@ -21,10 +21,16 @@ function VerReservas() {
   console.log(reservas);
 
   return (
+
     <div className="ver-reservas-container">
-      {reservas.map((item) => (
-        <Card data ={item}/>
-      ))}
+      {reservas.length <= 0 ? (
+        <h1>No hay reservas disponibles</h1>
+      ) : (
+        reservas.map((item) => (
+          
+          <Card key={item.id} data={item} onUpdate={getReservas} />
+        ))
+      )}
     </div>
   );
 }

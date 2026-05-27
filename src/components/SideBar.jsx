@@ -3,35 +3,56 @@ import "../styles/SideBarStyle.css";
 
 import { getLocalStorage, removeLocalStorage } from "../helpers/local-storage";
 import { redirectAlert } from "../helpers/alerts";
+import { end_points } from "../services/api";
 
 import { Link } from "react-router-dom";
 
 function SideBar() {
+  const cliente = JSON.parse(getLocalStorage("cliente"));
+
+  function logOut() {
+    // 1. Limpiamos los datos de sesión local inmediatamente
+    removeLocalStorage("cliente");
+    removeLocalStorage("turnoCliente");
+
+    // 2. Traemos todas las reservas actuales para poder borrarlas
+    fetch(end_points.reserva)
+      .then((response) => response.json())
+      .then((reservas) => {
+        // 3. Recorremos el array de reservas y disparamos un DELETE por cada una usando su ID
+        reservas.forEach((reserva) => {
+          fetch(`${end_points.reserva}/${reserva.id}`, { method: "DELETE" })
+            .then(() => console.log(`Reserva ${reserva.id} eliminada`))
+            .catch((error) => console.log("Error al borrar una reserva:", error));
+        });
+      })
+      .catch((error) => console.log("Error al obtener las reservas:", error));
+  }
+
   return (
-    <aside className="sidebar-container">
+    <nav className="sidebar-container">
       {/* Bloque Superior */}
       <div>
         <div className="sidebar-title">
-          Anfitrión:
-          <span className="sidebar-host-name">[Nombre Aquí]</span>
+          Hola 
+          <span className="sidebar-host-name">{cliente}</span>
         </div>
 
-        {/* Botón de navegación (reutiliza el estilo de tu CSS) */}
-
-        <div id="">
+        <div>
           <Link to="hacer-reservas/">Crear Reservas</Link>
         </div>
 
-        <div id="">
+        <div>
           <Link to="ver-reservas/">Ver Reservas</Link>
         </div>
       </div>
 
       {/* Bloque Inferior: Botón de Cerrar Sesión */}
-      <div id="">
-        <Link to="/">Cerrar Sesión</Link>
+      <div>
+        {/* Pasamos logOut directamente como referencia sin la función flecha innecesaria */}
+        <Link to="/" onClick={logOut}>Cerrar Sesión</Link>
       </div>
-    </aside>
+    </nav>
   );
 }
 
