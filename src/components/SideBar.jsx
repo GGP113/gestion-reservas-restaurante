@@ -7,8 +7,6 @@ import { redirectAlert } from "../helpers/alerts";
 import { Link } from "react-router-dom";
 
 function SideBar() {
-  
-
   return (
     <aside className="sidebar-container">
       {/* Bloque Superior */}
@@ -19,14 +17,19 @@ function SideBar() {
         </div>
 
         {/* Botón de navegación (reutiliza el estilo de tu CSS) */}
-        <div id="endform">
+
+        <div id="">
+          <Link to="hacer-reservas/">Crear Reservas</Link>
+        </div>
+
+        <div id="">
           <Link to="ver-reservas/">Ver Reservas</Link>
         </div>
       </div>
 
       {/* Bloque Inferior: Botón de Cerrar Sesión */}
-      <div id="endform">
-        <Link to ="/">Cerrar Sesión</Link>
+      <div id="">
+        <Link to="/">Cerrar Sesión</Link>
       </div>
     </aside>
   );

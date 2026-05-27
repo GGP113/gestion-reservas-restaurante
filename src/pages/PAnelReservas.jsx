@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/LogInStyle.css";
+import "../styles/HacerReservaStyle.css";
 import SideBar from "../components/SideBar";
 
 import { end_points } from "../services/api";
@@ -16,7 +16,7 @@ function PAnelReservas() {
       method: "POST",
 
       headers: {
-        "Content-Type": "application/json", // 👈 SOLO AGREGAMOS ESTO
+        "Content-Type": "application/json", 
       },
       
       body: JSON.stringify(data),
@@ -25,8 +25,8 @@ function PAnelReservas() {
 
   return (
      
-
-      <form className="form" onSubmit={createReserva}>
+    <div className="login-container">
+         <form className="form" onSubmit={createReserva}>
           <div id="circleform"></div>
           <div id="introform">
             <div id="introformbehind">
@@ -57,6 +57,9 @@ function PAnelReservas() {
             <button type="submit">Crear</button>
           </div>
         </form>
+    </div>
+
+     
   );
 }
 

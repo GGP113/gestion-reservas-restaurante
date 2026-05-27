@@ -88,3 +88,86 @@
   text-decoration: none; /* 🌟 OBLIGATORIO: Quita el subrayado feo del enlace */
   box-sizing: border-box; /* Asegura que el padding no rompa el ancho */
 }
+
+
+/* ========================================================================== */
+/* 🌟 AGREGADO RESPONSIVE CORREGIDO: Todo visible en celulares y tablets     */
+/* ========================================================================== */
+@media (max-width: 768px) {
+  /* Cambiamos la orientación general de la página a vertical */
+  .reservas-page-container {
+    flex-direction: column;
+  }
+
+  /* El formulario usa toda la pantalla y baja para no quedar tapado */
+  .reservas-main-content {
+    margin-left: 0;
+    padding-top: 160px; /* Espacio suficiente para la barra de dos niveles */
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Convertimos el Sidebar en un encabezado fijo arriba */
+  .sidebar-container {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    flex-direction: column; /* Organiza en dos niveles: arriba título, abajo botones */
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 15px 20px;
+    gap: 12px;
+    border-right: none;
+    border-bottom: 5px solid var(--color1); /* Borde amarillo abajo */
+    box-shadow: 0em 0.5em var(--color2);    /* Sombra rosa abajo */
+  }
+
+  /* Forzamos a que los contenedores nativos de tus bloques se estiren al 100% */
+  .sidebar-container > div:first-child,
+  .sidebar-container > div:last-child {
+    width: 100%;
+    display: flex;
+  }
+
+  /* El primer contenedor llevará el título y los dos primeros botones en línea */
+  .sidebar-container > div:first-child {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Encapsulamos todos los enlaces para que se acomoden juntos en una fila */
+  .sidebar-container div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* Si la pantalla es micro, los botones bajan solos sin romperse */
+    gap: 10px;
+  }
+
+  /* Reducimos el título para entorno móvil */
+  .sidebar-title {
+    font-size: 1em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    width: 100%;
+  }
+
+  .sidebar-host-name {
+    display: inline;
+    margin-top: 0;
+    margin-left: 5px;
+  }
+
+  /* Ajustamos tus links Pop-Art para que fluyan perfectamente en horizontal */
+  .sidebar-container a {
+    width: auto;
+    height: 2.2em;
+    font-size: 0.85em;
+    padding: 0 1em;
+    margin-bottom: 0;
+    box-shadow: 0.4em 0.4em 0em white; /* Ajuste de sombra blanca */
+    white-space: nowrap; /* Evita que el texto se parta en dos líneas */
+    display: inline-flex;
+    align-items: center;
+  }
+}

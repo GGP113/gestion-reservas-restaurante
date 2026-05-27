@@ -37,6 +37,8 @@ function LogIn() {
   return (
     <div className="login-container"  >
       <form className="form" onSubmit={manejarEnvio}>
+
+        
         <div id="circleform"></div>
         <div id="introform">
           <p>Welcome back!</p>
@@ -76,6 +78,8 @@ function LogIn() {
         <div id="endform">
           <button type="submit">Haz tu reserva!</button>
         </div>
+
+
       </form>
     </div>
   );
